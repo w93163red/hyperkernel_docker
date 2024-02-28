@@ -1,0 +1,15 @@
+diff --git a/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h b/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h
+index da02250ba16..bed472e2e0e 100644
+--- a/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h
++++ b/include/llvm/ExecutionEngine/Orc/OrcRemoteTargetClient.h
+@@ -713,8 +713,8 @@ private:
+ 
+   uint32_t getTrampolineSize() const { return RemoteTrampolineSize; }
+ 
+-  Expected<std::vector<char>> readMem(char *Dst, JITTargetAddress Src,
+-                                      uint64_t Size) {
++  Expected<std::vector<uint8_t>> readMem(char *Dst, JITTargetAddress Src,
++                                         uint64_t Size) {
+     // Check for an 'out-of-band' error, e.g. from an MM destructor.
+     if (ExistingError)
+       return std::move(ExistingError);
