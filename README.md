@@ -13,6 +13,6 @@ cd /code
 # to compile the hv6
 USE_CLANG=1 make
 # to run the verify
-make hv6-verify
+USE_CLANG=1 CXX=clang++ make hv6-verify
 ```
 
